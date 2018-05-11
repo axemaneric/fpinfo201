@@ -1,2 +1,2 @@
 # Youtube Trending Videos Data Analysis
-Authors: Eric Fan, Christopher Forbes, Emma Xia, Brian Ho
+Authors: Eric Fan, Christofer Forbes, Emma Xia, Brian Ho
