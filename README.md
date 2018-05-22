@@ -20,4 +20,15 @@ Line Graph (Categories)
 
 Scatterplot (Views VS Appeal/Likes/Dislikes/Comments)
 - Views (Static) VS Dropdown menu
-	-
+	- Appeal = Mutate an extra Like per View ratio
+	- Likes
+	- Dislikes
+	- Comments
+- Different colors for different categories
+- Widgets
+	- SelectionInput for Dropdown
+	- Search for specific channel
+- Answers the question for relationship between views and certain attributes
+- Also can determine which channels/categories are popular
+
+
