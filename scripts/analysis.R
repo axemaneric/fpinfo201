@@ -9,6 +9,6 @@ data <- flatten(data[["items"]]) %>%
 data$category_id <- as.integer(data$category_id)
 US_videos <- read.csv("../data/USvideos.csv", stringsAsFactors = FALSE)
 new_data <- left_join(US_videos, data, by = "category_id")
-l <- as.character(data$Category)
-names(l) <- data$category_id
 
+# Split the tags into a list
+new_data$tags <- as.list(strsplit(new_data$tags, "|", fixed = T))
