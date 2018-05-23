@@ -30,5 +30,5 @@ new_data <- new_data %>%
          views, likes, dislikes, comment_count, thumbnail_link)
 
 # Change the format of date
+new_data$trending_date <- paste0("20",new_data$trending_date)
 new_data$trending_date <- as.Date(new_data$trending_date, "%Y.%d.%m")
-
