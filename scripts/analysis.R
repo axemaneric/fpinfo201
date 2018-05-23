@@ -29,3 +29,6 @@ new_data <- new_data %>%
   select(video_id, trending_date, title, channel_title, category, tags, 
          views, likes, dislikes, comment_count, thumbnail_link)
 
+# Change the format of date
+new_data$trending_date <- as.Date(new_data$trending_date, "%Y.%d.%m")
+
