@@ -17,11 +17,5 @@ US_videos <- read.csv("../data/USvideos.csv", stringsAsFactors = FALSE)
 # Join `US_videos` with `data` by category id. Adds categories to the videos
 new_data <- left_join(US_videos, data, by = "category_id")
 
-# Filter out videos we can't use (videos without comments, ratings, or deleted videos)
-# Select only columns that we need
-new_data <- new_data %>% 
-  filter(comments_disabled == 'False') %>%
-  filter(ratings_disabled == 'False') %>%
-  filter(video_error_or_removed == 'False') %>%
-  select(video_id, trending_date, title, channel_title, category, tags, 
-         views, likes, dislikes, comment_count, thumbnail_link)
+# Split the tags into a list
+new_data$tags <- as.list(strsplit(new_data$tags, "|", fixed = T))
