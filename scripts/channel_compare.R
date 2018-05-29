@@ -18,18 +18,20 @@ build_bar <- function(data, yvar = "", cat = "") {
                   "views" = "MOST VIEWED",
                   "Rating" = "HIGHEST RATING")
   
-  link <- paste0("<a href = 'https://www.youtube.com/", data$video_id, "></a>")
+  link <- paste0("<a href = 'https://www.youtube.com'>Video Link</a>")
   
   p <- plot_ly(data, 
                x = ~title, 
                y = data[, yvar], type = 'bar',
                colors = "Set2",
-               color = ~category) %>% 
+               color = ~category,
+               text = link,
+               textposition = "auto",
+               textcolor = "transparent") %>% 
     layout(yaxis = list(title = toupper(yvar)),
            xaxis = list(title = "VIDEO"),
            title = toupper(paste("Top 25", options[yvar], "Videos")))
   p
 }
 
-build_bar(new_data, "dislikes", c())
-))
+build_bar(new_data, "dislikes", list("Sports", "Comedy"))
