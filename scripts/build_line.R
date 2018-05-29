@@ -37,6 +37,12 @@ build_line <- function(my_data, xvar, yvar){
     my_line <- my_line %>% 
       add_trace(y = col_name, name = line_name, mode = "line")
   }
+  
+  my_line <- my_line %>% 
+    layout(title = "Number of Trending Videos in Catogories Change in Time",
+           xaxis = list(title = "Date"),
+           yaxis = list (title = "Number of Videos"))
+  
 
 }
 
