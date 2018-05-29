@@ -16,21 +16,31 @@ build_line <- function(my_data, xvar, yvar){
     filter(trending_date > date_one & trending_date < date_two)
 
   # filter based on category checkboxes
-  final_data <- my_data[0,]
-  my_line <- plot_ly(final_data, x = ~trending_date, type = "scatter", mode = "line")
-  for (i in 1 : length(yvar)){
-    draw_line(final_data, yvar[[i]], my_line)
+  data <- filter(my_data, category == yvar[[length(yvar)]]) %>%
+    group_by(trending_date) %>%
+    summarize(video = length(video_id))
+  line_one <- yvar[[length(yvar)]]
+  # data_2 <- filter(my_data, category == "People & Blogs") %>%
+  #   group_by(trending_date) %>%
+  #   summarize(video_2 = length(video_id))
+# 
+#   data <- data %>%
+#     mutate(video_2 = data_2$video_2)
+  my_line <- plot_ly(data, x = ~trending_date, y = ~video,
+                     type = "scatter", name = line_one, mode = "line") 
+
+  
+  for (i in 1 : (length(yvar)-1)){
+    col_name <- paste0("video", i)
+    line_name <- yvar[[i]]
+    new_data <- filter(my_data, category == yvar[[i]]) %>%
+      group_by(trending_date) %>%
+      summarize(video = length(video_id))
+    data <- data %>% 
+      mutate(!!col_name := new_data$video)
+    my_line <- my_line %>% 
+      add_trace(y = col_name, name = line_name, mode = "line")
   }
 
 }
 
-# a function that draws an extra line onto the plot
-draw_line <- function(data, class, line){
-  data <- final_data
-  class <- "Sports"
-  data <- filter(data, category == class) %>% 
-    group_by(trending_date) %>% 
-    summarize(view_sum = sum(as.numeric(views)))
-  line <- line %>% 
-    add_trace(y = ~view_sum, type = "scatter", mode = "line")
-}
