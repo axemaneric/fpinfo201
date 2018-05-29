@@ -15,21 +15,17 @@ build_line <- function(my_data, xvar, yvar){
   my_data <- my_data %>% 
     filter(trending_date > date_one & trending_date < date_two)
 
-  # filter based on category checkboxes
+  # filter out the data related to the last category in the list
   data <- filter(my_data, category == yvar[[length(yvar)]]) %>%
     group_by(trending_date) %>%
     summarize(video = length(video_id))
   line_one <- yvar[[length(yvar)]]
-  # data_2 <- filter(my_data, category == "People & Blogs") %>%
-  #   group_by(trending_date) %>%
-  #   summarize(video_2 = length(video_id))
-# 
-#   data <- data %>%
-#     mutate(video_2 = data_2$video_2)
+
+  # draw out the first line based on the data
   my_line <- plot_ly(data, x = ~trending_date, y = ~video,
                      type = "scatter", name = line_one, mode = "line") 
 
-  
+  # draw out the rest of the lines based on other categories
   for (i in 1 : (length(yvar)-1)){
     col_name <- paste0("video", i)
     line_name <- yvar[[i]]
