@@ -18,7 +18,7 @@ build_bar <- function(data, yvar = "", cat = "") {
                   "views" = "MOST VIEWED",
                   "Rating" = "HIGHEST RATING")
   
-  link <- paste0("<a href = 'https://www.youtube.com'>Video Link</a>")
+  link <- paste0("<a href = 'https://www.youtube.com/watch?v=", data$video_id,"'>Click Me!</a>")
   
   p <- plot_ly(data, 
                x = ~title, 
@@ -26,8 +26,7 @@ build_bar <- function(data, yvar = "", cat = "") {
                colors = "Set2",
                color = ~category,
                text = link,
-               textposition = "auto",
-               textcolor = "transparent") %>% 
+               textposition = "auto") %>% 
     layout(yaxis = list(title = toupper(yvar)),
            xaxis = list(title = "VIDEO"),
            title = toupper(paste("Top 25", options[yvar], "Videos")))
