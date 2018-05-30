@@ -1,11 +1,11 @@
 # Build Scatter file: function that returns a plotly Scatter plot
 library(plotly)
 library(stringr)
-source("analysis.R")
+#source("analysis.R")
 
-data2 <- read.csv("../data/scatterstats.csv", stringsAsFactors = FALSE)
-data2 <- data2 %>% 
-  filter(Avg.Likes < 500000)
+#data2 <- read.csv("../data/scatterstats.csv", stringsAsFactors = FALSE)
+#data2 <- data2 %>% 
+#  filter(Avg.Likes < 500000)
 
 ### Build Scatter ###
 # xvar = input
@@ -36,4 +36,4 @@ build_scatter <- function(data, search = "", search2 = "", xvar, unique = FALSE)
     return()
 }
 
-build_scatter(data2, "", "", "Avg.Likes", FALSE)
+#build_scatter(data2, "", "", "Avg.Likes", FALSE)

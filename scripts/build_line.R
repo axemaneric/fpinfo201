@@ -1,7 +1,6 @@
 library(dplyr)
 library(plotly)
 library(lubridate)
-source("analysis.R")
 
 build_line <- function(my_data, xvar, yvar){
   

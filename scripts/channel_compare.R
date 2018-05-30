@@ -2,10 +2,8 @@ library(plotly)
 library(stringr)
 library(dplyr)
 library(rlang)
-source("analysis.R")
 
 build_bar <- function(data, yvar = "", cat = "") {
-  
   data <- data %>% 
     arrange(desc(data[, yvar])) %>% 
     filter(category == cat) %>% 
@@ -32,5 +30,3 @@ build_bar <- function(data, yvar = "", cat = "") {
            title = toupper(paste("Top 25", options[yvar], "Videos")))
   p
 }
-
-build_bar(new_data, "dislikes", list("Sports", "Comedy"))

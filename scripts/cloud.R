@@ -3,7 +3,6 @@ library(dplyr)
 library(stringr)
 library(tm)
 
-source('analysis.R')
 # Combine tags with the filtered category
 build_cloud <- function(data, type) {
   category_tag <- data %>%select(category, tags) %>% group_by(category)
@@ -17,6 +16,5 @@ build_cloud <- function(data, type) {
   wordcloud(words = unique_tag$tag, freq = unique_tag$count, min.freq = 100, 
             random.order = F, random.color = F, colors = pal1, rot.per = .1)
 }
-test <- build_cloud(new_data, "Comedy")
 
 

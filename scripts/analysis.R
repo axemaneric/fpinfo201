@@ -17,9 +17,6 @@ US_videos <- read.csv("../data/USvideos.csv", stringsAsFactors = FALSE)
 # Join `US_videos` with `data` by category id. Adds categories to the videos
 new_data <- left_join(US_videos, data, by = "category_id")
 
-# Split the tags into a list
-new_data$tags <- as.list(strsplit(new_data$tags, "|", fixed = T))
-
 # Filter out videos we can't use (videos without comments, ratings, or deleted videos)
 # Select only columns that we need
 new_data <- new_data %>% 
@@ -32,3 +29,7 @@ new_data <- new_data %>%
 # Change the format of date
 new_data$trending_date <- paste0("20",new_data$trending_date)
 new_data$trending_date <- as.Date(new_data$trending_date, "%Y.%d.%m")
+
+
+# Write new_data to data folder
+write.csv(new_data, "../data/new_data.csv")
