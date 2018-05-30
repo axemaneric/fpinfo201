@@ -2,14 +2,13 @@ library(dplyr)
 library(plotly)
 library(lubridate)
 
-
 build_line <- function(my_data, xvar, yvar) {
   # testing
-  # new_data <- read.csv('data/new_data.csv')
-  # new_data %>% mutate_if(is.factor, as.character) -> new_data
-  # my_data <- new_data
-  # xvar <- c(as.Date("2017-11-30"), as.Date("2018-01-01"))
-  # yvar <- list("Entertainment", "People & Blogs", "Sports")
+   new_data <- read.csv('data/new_data.csv')
+   new_data %>% mutate_if(is.factor, as.character) -> new_data
+   my_data <- new_data
+   xvar <- c(as.Date("2017-11-30"), as.Date("2018-01-01"))
+   yvar <- list("Entertainment", "People & Blogs", "Sports")
 
   # filter based on date slider
   date_one <- as.Date(xvar[[1]])

@@ -32,6 +32,11 @@ new_data <- new_data %>%
 new_data$trending_date <- paste0("20", new_data$trending_date)
 new_data$trending_date <- as.Date(new_data$trending_date, "%Y.%d.%m")
 
+# Append rating (likes to total number of ratings)
+new_data <- new_data %>%
+  mutate("rating" = (likes / (likes + dislikes) * 10)) %>%
+  filter(rating < 10) %>%
+  rename(comments = comment_count)
 
 # Write new_data to data folder
 write.csv(new_data, "../data/new_data.csv")
