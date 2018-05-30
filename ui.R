@@ -3,25 +3,23 @@ library(shiny)
 library(plotly)
 library(ggplot2)
 library(shinythemes)
+library(lubridate)
 
-categories <- c(
-  "Autos & Vehicles", 
-  "Comedy", "Education",
-  "Entertainment", "Film & Animation", 
-  "Gaming", "Howto & Style", "Music",
+categories <- list(
+  "Autos & Vehicles", "Comedy", "Education","Entertainment", 
+  "Film & Animation", "Gaming", "Howto & Style", "Music",
   "News & Politics", "Nonprofits & Activism", "People & Blogs",
-  "Pets & Animals", "Science & Technology", 
-  "Shows", "Sports", 
+  "Pets & Animals", "Science & Technology","Shows", "Sports",
   "Travel & Events"
 )
 
 shinyUI(navbarPage(
   "YouTube Trending Analysis",
-  
+
   # Tab for line graph of trending categories
   tabPanel(
     "Video Count",
-    titlePanel("Video Count per Trending Category"),
+    titlePanel("Video Count Per Trending Category"),
     sidebarLayout(
       # Sidebar for widgets
       sidebarPanel(
@@ -29,24 +27,24 @@ shinyUI(navbarPage(
           "cat.line",
           label = "Pick Categories:",
           choices = categories,
-          selected = categories
+          selected = list("Entertainment", "People & Blogs", "Sports")
         ),
         sliderInput(
           "date.range",
-          label = "Choose Date Range:", 
+          label = "Choose Date Range:",
           min = as.Date("2017-11-14"),
           max = as.Date("2018-05-09"),
-          value = c(as.Date("2017-11-14"), as.Date("2018-05-09"))
+          value = c(as.Date("2017-11-30"), as.Date("2018-01-01"))
         )
       ),
-      
+
       # Main panel for displaying the line graph
       mainPanel(
         plotlyOutput("line")
       )
     )
   ),
-    
+
   # Tab for bar graph top 25 videos of the trending page filtered
   # by likes, dislikes, rating, views, depending on category
   tabPanel(
@@ -57,7 +55,7 @@ shinyUI(navbarPage(
       sidebarPanel(
         checkboxGroupInput(
           "cat.bar",
-          label = "Pick Categories:", 
+          label = "Pick Categories:",
           choices = categories,
           selected = categories
         ),
@@ -68,18 +66,18 @@ shinyUI(navbarPage(
             "likes",
             "dislikes",
             "views",
-            "rating"
+            "Rating"
           )
         )
       ),
-      
+
       # Main panel for the bar graph
       mainPanel(
         plotlyOutput("bar")
       )
     )
   ),
-    
+
   # Tab for word cloud of most frequent used tags withing trending videos
   # according to a single category
   tabPanel(
@@ -94,7 +92,7 @@ shinyUI(navbarPage(
           choices = categories
         )
       ),
-      
+
       # Main panel for word cloud
       mainPanel(
         plotOutput("cloud")

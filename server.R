@@ -26,15 +26,15 @@ source("scripts/cloud.R")
 # Start shiny server
 shinyServer(function(input, output) {
   
-  output$line <- renderPlotly(
+  output$line <- renderPlotly({
     return(build_line(new_data, input$date.range, input$cat.line))
-  )
+  })
   
-  output$bar <- renderPlotly(
+  output$bar <- renderPlotly({
     return(build_bar(new_data, input$yvar, input$cat.bar))
-  )
+  })
   
-  output$cloud <- renderPlot(
+  output$cloud <- renderPlot({
     return(build_cloud(new_data, input$category))
-  )
+  })
 })
