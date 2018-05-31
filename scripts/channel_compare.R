@@ -5,7 +5,7 @@ library(dplyr)
 # core function that creates an adaptive bar plot
 # takes in a dataframe 'data'; a y-variable component yvar; category list 'cat'
 build_bar <- function(data, yvar = "", cat = "") {
-  
+
   # filter and select top 25 videos that match inputs
   data <- data %>%
     arrange(desc(data[, yvar])) %>%
@@ -15,7 +15,7 @@ build_bar <- function(data, yvar = "", cat = "") {
 
   # to keep order requires factored video title names
   data$title <- factor(data$title, levels = data$title)
-  
+
   # title options
   options <- list(
     "likes" = "MOST LIKED",

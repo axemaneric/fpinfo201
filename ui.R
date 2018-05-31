@@ -25,27 +25,26 @@ shinyUI(navbarPage(
   theme = shinytheme("yeti"),
   tabPanel(
     "Overview",
-    
-      tags$h1("Overview"),
-      tags$p("This application allows for people to explore the different
+
+    tags$h1("Overview"),
+    tags$p("This application allows for people to explore the different
              aspects of YouTube Trending Videos. This is mainly catered to
              those that classify as YouTubers and want to keep with the 
              latest trends that the website has to offer."),
-    
+
     tags$hr(),
-    
-      tags$h1("What can you do?"),
-      tags$br(),
-      tags$h4("SEE THE HIGHEST STAT VIDEOS"),
-      tags$p("You can see which of the videos has the most likes, 
+
+    tags$h1("What can you do?"),
+    tags$br(),
+    tags$h4("SEE THE HIGHEST STAT VIDEOS"),
+    tags$p("You can see which of the videos has the most likes, 
              dislikes, and views!"),
-      tags$h4("SEE TRENDING TOPICS"),
-      tags$p("You can see the tags of trending categories and stay up to date
+    tags$h4("SEE TRENDING TOPICS"),
+    tags$p("You can see the tags of trending categories and stay up to date
              with the latest topics!"),
-      tags$h4("FIND THE MOST POPULAR CATEGORIES"), 
-      tags$p("Get insight on what kind of videos are the hottest topics on
+    tags$h4("FIND THE MOST POPULAR CATEGORIES"),
+    tags$p("Get insight on what kind of videos are the hottest topics on
              YouTube!")
-    
   ),
   # Tab for bar graph top 25 videos of the trending page filtered
   # by likes, dislikes, rating, views, depending on category

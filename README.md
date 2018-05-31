@@ -11,26 +11,3 @@ Emma: I think we need to talk about a little bit more about what we want to do w
 ## Technical Description
 We will be **reading our data from a static .csv** provided by [Kaggle](https://www.kaggle.com/datasnaek/youtube-new/data). Besides the `dplyr`, `plotly`, and `shiny` libraries, we currently are not aware of any new libraries needed for our assignment. In terms of data wrangling, we will be **filtering, reshaping, reformatting, and summarizing data** depending on the aspects we decide to add to our application later on. Figuring out **what data to display** and **how that data will displayed** will be the most challenging part of our assignment. This is because we need to figure out what data visualizations will best fit the aspects of data we want to show.
 
-## Project
-Line Graph (Categories)
-- Time VS Frequency
-- Multiple lines representing each category
-- Widgets to include
-	- Checkbox for every category
-	- DragInput for time range
-- Answers the question for trending categories over time
-
-Scatterplot (Views VS Appeal/Likes/Dislikes/Comments)
-- Views (Static) VS Dropdown menu
-	- Appeal = Mutate an extra Like per View ratio
-	- Likes
-	- Dislikes
-	- Comments
-- Different colors for different categories
-- Widgets
-	- SelectionInput for Dropdown
-	- Search for specific channel
-- Answers the question for relationship between views and certain attributes
-- Also can determine which channels/categories are popular
-
-
