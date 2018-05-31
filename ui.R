@@ -16,6 +16,30 @@ categories <- list(
 shinyUI(navbarPage(
   "YouTube Trending Analysis",
   theme = shinytheme("yeti"),
+  tabPanel(
+    "Overview",
+    
+      tags$h1("Overview"),
+      tags$p("This application allows for people to explore the different
+             aspects of YouTube Trending Videos. This is mainly catered to
+             those that classify as YouTubers and want to keep with the 
+             latest trends that the website has to offer."),
+    
+    tags$hr(),
+    
+      tags$h1("What can you do?"),
+      tags$br(),
+      tags$h4("SEE THE HIGHEST STAT VIDEOS"),
+      tags$p("You can see which of the videos has the most likes, 
+             dislikes, and views!"),
+      tags$h4("SEE TRENDING TOPICS"),
+      tags$p("You can see the tags of trending categories and stay up to date
+             with the latest topics!"),
+      tags$h4("FIND THE MOST POPULAR CATEGORIES"), 
+      tags$p("Get insight on what kind of videos are the hottest topics on
+             YouTube!")
+    
+  ),
   # Tab for bar graph top 25 videos of the trending page filtered
   # by likes, dislikes, rating, views, depending on category
   tabPanel(
@@ -37,7 +61,8 @@ shinyUI(navbarPage(
             "likes",
             "dislikes",
             "views",
-            "Rating"
+            "rating",
+            "comments"
           )
         )
       ),
@@ -45,6 +70,7 @@ shinyUI(navbarPage(
       # Main panel for the bar graph
       mainPanel(
         plotlyOutput("bar"),
+        tags$hr(),
         tags$p("This bar graph shows the Top 25 Videos in a certain category
                according to a specific video statistic. The user is able to 
                choose which categories to display and the which statistic to
@@ -72,6 +98,7 @@ shinyUI(navbarPage(
       # Main panel for word cloud
       mainPanel(
         plotOutput("cloud"),
+        tags$hr(),
         tags$p("The word cloud shows the most frequent tags of the trending 
                videos depending on category. It allows the user to know what
                topics in each category are most popular right now.")
@@ -103,11 +130,14 @@ shinyUI(navbarPage(
       # Main panel for displaying the line graph
       mainPanel(
         plotlyOutput("line"),
-        tags$p("This line graph showcases the number of trending videos in each
-               category over a date range. Each line displays a category and 
-               the user is able to choose which categories to compare and the 
-               date range. This allows the user to see the popularity of each
-               category in the trending videos section.")
+        tags$hr(),
+        tags$p(
+          "This bar graph shows the Top 25 Videos in a certain category 
+          according to a specific video statistic. The user is able to choose 
+          which categories to display and the which statistic to organize it 
+          by. This allows the user to be know what types of videos get the 
+          most likes, dislikes, and views."
+        )
       )
     )
   )

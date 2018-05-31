@@ -1,0 +1,12 @@
+name: yt-trending-data-analysis
+title: yt-trending-data-analysis
+username:
+account: cforbes1
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 351438
+bundleId: 1401649
+url: https://cforbes1.shinyapps.io/yt-trending-data-analysis/
+when: 1527722758.01925
+asMultiple: FALSE
+asStatic: FALSE

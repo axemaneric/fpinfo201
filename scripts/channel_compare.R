@@ -15,7 +15,8 @@ build_bar <- function(data, yvar = "", cat = "") {
     "likes" = "MOST LIKED",
     "dislikes" = "MOST DISLIKED",
     "views" = "MOST VIEWED",
-    "Rating" = "HIGHEST RATING"
+    "rating" = "HIGHEST RATING",
+    "comments" = "MOST COMMENTS"
   )
 
   link <- paste0("<a href = 'https://www.youtube.com/watch?v=", data$video_id, "'>Click Me!</a>")
