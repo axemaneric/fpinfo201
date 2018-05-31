@@ -26,15 +26,18 @@ source("scripts/cloud.R")
 # Start shiny server
 shinyServer(function(input, output) {
   
+  output$bar <- renderPlotly({
+    return(suppressWarnings(build_bar(new_data, input$yvar, input$cat.bar)))
+  })
+  
+  output$cloud <- renderPlot({
+    return(suppressWarnings(build_cloud(new_data, input$category)))
+  })
+  
+  # code for building trend line
+  # Note: Does not have separate file because plot would not render
   output$line <- renderPlotly({
     return(build_line(new_data, input$date.range, input$cat.line))
   })
   
-  output$bar <- renderPlotly({
-    return(build_bar(new_data, input$yvar, input$cat.bar))
-  })
-  
-  output$cloud <- renderPlot({
-    return(build_cloud(new_data, input$category))
-  })
 })

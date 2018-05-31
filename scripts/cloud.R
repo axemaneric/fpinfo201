@@ -15,8 +15,8 @@ build_cloud <- function(data, type) {
     arrange(-count)
   unique_tag <- unique(tag_count)
   pal1 <- brewer.pal(8, "Set1")
+  options(warn=-1)
   wordcloud(
     words = unique_tag$tag, freq = unique_tag$count, min.freq = 100,
-    random.order = F, random.color = F, colors = pal1, rot.per = .1
-  )
+    random.order = F, random.color = F, colors = pal1, rot.per = .1)
 }

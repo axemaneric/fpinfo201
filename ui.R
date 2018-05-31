@@ -13,6 +13,13 @@ categories <- list(
   "Travel & Events"
 )
 
+categories_line <- list(
+  "Comedy", "Education", "Entertainment",
+  "Film & Animation", "Howto & Style", "Music",
+  "News & Politics", "People & Blogs",
+  "Pets & Animals", "Science & Technology", "Sports"
+)
+
 shinyUI(navbarPage(
   "YouTube Trending Analysis",
   theme = shinytheme("yeti"),
@@ -115,7 +122,7 @@ shinyUI(navbarPage(
         checkboxGroupInput(
           "cat.line",
           label = "Pick Categories:",
-          choices = categories,
+          choices = categories_line,
           selected = list("Entertainment", "People & Blogs", "Sports")
         ),
         sliderInput(
