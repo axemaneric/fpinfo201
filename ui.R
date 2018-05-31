@@ -139,11 +139,10 @@ shinyUI(navbarPage(
         plotlyOutput("line"),
         tags$hr(),
         tags$p(
-          "This bar graph shows the Top 25 Videos in a certain category 
-          according to a specific video statistic. The user is able to choose 
-          which categories to display and the which statistic to organize it 
-          by. This allows the user to be know what types of videos get the 
-          most likes, dislikes, and views."
+          "This line plot displays the number of trending videos in a certain 
+          category over a certain period of time. Users can choose which can
+          categories to display and the specific date range. This allows the
+          user to see which categories are most trending."
         )
       )
     )
